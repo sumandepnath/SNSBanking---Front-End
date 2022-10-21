@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--Angular Java CDN-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
-</script>
-
 <head>
     <meta charset="UTF-8">
     <title>SNS Banking Limited</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Bootstrap CDN-->
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
     <!--Login Form CSS - custom-->
     <link rel="stylesheet" href="login_form.css">
+    <!--Welcome Popup CSS-->
+    <link rel="stylesheet" href="welcomePopup.css">
 </head>
+
 <body>
+    <div id="welcomePopup" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Welcome!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Online SNS Banking Limited</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Script-->
+    <script type="text/javascript" src="welcomePopup.js">
+    </script>
     <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
             <div class="loginbackground box-background--white padding-top--64">
@@ -106,4 +123,5 @@
         </div>
     </div>
 </body>
+
 </html>
