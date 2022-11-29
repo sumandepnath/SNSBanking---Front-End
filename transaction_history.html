@@ -28,8 +28,8 @@
     <nav>
         <ul>
             <li><a href="transaction_history.html" class="active">Transaction History</a></li>
-            <li><a href="#">Money Transfer</a></li>
-            <li><a href="#">Complaints/Enquiry</a></li>
+            <li><a href="money_transfer.html">Money Transfer</a></li>
+            <li><a href="#">Profile</a></li>
             <li><a href="index.html">Logout</a></li>
             <!--                <li><a href="#">Portfolio</a></li>-->
             <!--                <li><a href="#">Contact</a></li>-->
@@ -38,41 +38,41 @@
     <div class="clear"></div>
 </header>
 
-<div class="row">
-    <div class="col-12 col-md-8">
-        <div>
-            <div class="container">
-                <h2>Account Information</h2>
-                <select id="select_menu">
-                    <option value="null">Select an Account</option>
-                    <option value="savings">Savings (001-001-011)</option>
-                    <option value="chequing">Chequing (001-011-011)</option>
-                </select>
-                <button onclick="dataprint()">Apply</button>
-            </div>
-            <div class="container">
-                <h2>Transactions</h2>
-                <p id="databox">Please select an account from top to view its transactions.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-6 col-md-4">
-        <div class="card" style="position: sticky; top: 0;">
-            <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
-            <div class="container">
-                <h4><b>Suman Dep Nath</b></h4>
-                <dl>
-                    <dt>Address:</dt>
-                    <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>
-                    <dt>Phone Number: </dt>
-                    <dd>(506) 898 2609</dd>
-                    <dt>Email:</dt>
-                    <dd>sumandepnath7@gmail.com</dd>
-                </dl>
+    <div class="row">
+        <div >
+            <div>
+                <div class="container">
+                    <h2>Account Information</h2>
+                    <select id="select_menu">
+                        <option value="null">Select an Account</option>
+                        <option value="savings">Savings (001-001-011)</option>
+                        <option value="chequing">Chequing (001-011-011)</option>
+                    </select>
+                    <button onclick="dataprint()">Apply</button>
+                </div>
+                <div class="container">
+                    <h2>Transactions</h2>
+                    <p id="databox">Please select an account from top to view its transactions.</p>
+                </div>
             </div>
         </div>
+<!--    <div class="col-6 col-md-4">
+            <div class="card" style="position: sticky; top: 0;">
+                <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
+                <div class="container">
+                    <h4><b>Suman Dep Nath</b></h4>
+                    <dl>
+                        <dt>Address:</dt>
+                        <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>
+                        <dt>Phone Number: </dt>
+                        <dd>(506) 898 2609</dd>
+                        <dt>Email:</dt>
+                        <dd>sumandepnath7@gmail.com</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>-->
     </div>
-</div>
 </body>
 <script
         src="https://code.jquery.com/jquery-3.4.1.js"

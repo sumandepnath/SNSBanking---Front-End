@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SNS Banking Limited</title>
+  <link rel="icon" href="Logo%20Mini.png">
+
+  <!--Bootstrap CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+  <!--jquery cdn-->
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="table.css">
+</head>
+<body>
+<header>
+  <a href="dashboard.html" class="logo"><img src="Logo%20Mini.png" style="width: 50px; height: 50px; justify-self: center;">SNS Banking Limited</a>
+  <div class="mean-toggle"></div>
+  <nav>
+    <ul>
+      <li><a href="transaction_history.html">Transaction History</a></li>
+      <li><a href="money_transfer.html" class="active">Money Transfer</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="index.html">Logout</a></li>
+      <!--                <li><a href="#">Portfolio</a></li>-->
+      <!--                <li><a href="#">Contact</a></li>-->
+    </ul>
+  </nav>
+  <div class="clear"></div>
+</header>
+
+<div class="row">
+  <div>
+    <div>
+      <div class="container">
+        <select id="select_menu">
+          <option value="0">Select an Option</option>
+          <option value="internal">Withing Own Accounts</option>
+          <option value="external">Other Accounts</option>
+        </select>
+        <button onclick="formLoad()">Apply</button>
+        <p id="formPrint">
+          Select an option to load the transfer form.
+        </p>
+      </div>
+    </div>
+  </div>
+<!--  <div class="col-6 col-md-4">
+    <div class="card" style="position: sticky; top: 0;">
+      <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
+      <div class="container">
+        <h4><b>Suman Dep Nath</b></h4>
+        <dl>
+          <dt>Address:</dt>
+          <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>
+          <dt>Phone Number: </dt>
+          <dd>(506) 898 2609</dd>
+          <dt>Email:</dt>
+          <dd>sumandepnath7@gmail.com</dd>
+        </dl>
+      </div>
+    </div>-->
+  </div>
+</div>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('.mean-toggle').click(function()
+    {
+      $('.mean-toggle').toggleClass('active')
+      $('nav').toggleClass('active')
+    })
+  })
+
+  function formLoad() {
+    var x = document.getElementById("select_menu").value;
+    var y;
+    if (x === "internal") {
+      y = "<form>" +
+              "<label for='fromAcc'>From Account: </label><br>" +
+              "<select id='fromAcc'>" +
+              "<option value='0'>Select an Account</option> " +
+              "<option value='1'>Savings</option>" +
+              "<option value='2'>Chequing</option>" +
+              "<option value='3'>Visa Credit</option> " +
+              "<option value='4'>MasterCard Platinum Credit</option> " +
+              "</select> <br>" +
+              "<label for='amt'>Enter Amount</label><br>" +
+              "<input type='number' placeholder='0.00' id='amt'><br>" +
+              "<label for='toAcc'>To Account: </label><br>" +
+              "<select id='toAcc'>" +
+              "<option value='0'>Select an Account</option> " +
+              "<option value='1'>Savings</option>" +
+              "<option value='2'>Chequing</option>" +
+              "<option value='3'>Visa Credit</option> " +
+              "<option value='4'>MasterCard Platinum Credit</option> " +
+              "</select>" +
+              "<br><br><button>Submit</button>" +
+              "</form>";
+    } else if (x === "external"){
+      y = "<form>" +
+              "<label for='fromAcc'>From Account: </label><br>" +
+              "<select id='fromAcc'>" +
+              "<option value='0'>Select an Account</option> " +
+              "<option value='1'>Savings</option>" +
+              "<option value='2'>Chequing</option>" +
+              "<option value='3'>Visa Credit</option> " +
+              "<option value='4'>MasterCard Platinum Credit</option> " +
+              "</select> <br>" +
+              "<label for='amt'>Enter Amount</label><br>" +
+              "<input type='number' placeholder='0.00' id='amt'><br>" +
+              "<label for='recieverId'>Reciever's Account Number</label><br>" +
+              "<input type='email' placeholder='example@snsbanking.com'>" +
+              "<br><br><button>Submit</button>" +
+              "</form>";
+    } else {
+      y = "Invalid Entry";
+    }
+    document.getElementById("formPrint").innerHTML = y;
+  }
+</script>
+</html>
