@@ -40,7 +40,7 @@
 
 <div class="row">
   <div>
-    <div class="card" style="position: sticky; top: 0;padding: 20px;">
+    <div class="card" style="position: sticky; top: 0;padding: 20px; margin: 0px 150px 0px 150px;">
       <form class="was-validated" onsubmit="formLoad()" action="#" target="_self">
         <div class="form-floating">
           <select id="select-form-type" class="form-select" onchange="formLoad()" required>
@@ -110,7 +110,7 @@
     var x = document.getElementById("select-form-type").value;
     var y;
     if (x === "1") {
-      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px;\">" +
+      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px; margin: 30px 150px 0px 150px;\">" +
               "<p class='h1'>Within Own Accounts</p> " +
               "<form class='was-validated'>" +
               "<div class='form-floating'> " +
@@ -151,7 +151,7 @@
               "</form>" +
               "</div>";
     } else if (x === "2"){
-      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px;\">" +
+      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px; margin: 30px 150px 0px 150px;\">" +
               "<p class='h1'>Transfer to Other Accounts</p> " +
               "<form class='was-validated'>" +
               "<div class='form-floating'> " +
