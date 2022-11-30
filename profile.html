@@ -65,46 +65,68 @@
     </div>
   </div>
 </div>
+
+<button class="open-button" onclick="openForm()">Report a Problem</button>
+
+<div class="chat-popup" id="myForm">
+  <form class="form-container">
+    <h1>Problem</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 <script>
-  let tl = gsap.timeline();
+  let box = gsap.timeline();
 
   console.log("New");
 
-  tl.from(".card", {
+  box.from(".card", {
     stagger: 0.2,
     opacity: 0,
     x: -20,
   });
 
-  tl.from(".avatar img", {
+  box.from(".avatar img", {
     stagger: 0.2,
     opacity: 0,
     y: 20,
   });
 
-  tl.from(".user-online-indicator",{
+  // box.from(".user-online-indicator",{
+  //   stagger: 0.2,
+  //   opacity: 0,
+  //   y: 20,
+  // })
+  box.from(".profile-name",{
     stagger: 0.2,
     opacity: 0,
     y: 20,
   })
-  tl.from(".profile-name",{
-    stagger: 0.2,
-    opacity: 0,
-    y: 20,
-  })
-  tl.from(".profile-role",{
+  box.from(".profile-role",{
     stagger: 0.2,
     opacity: 0,
     y: 20,
   })
 
-  tl.from(".social-buttons",{
+  box.from(".social-buttons",{
     stagger: 0.2,
     opacity: 0,
   })
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
 
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
 </script>
 </body>
 </html>

@@ -12,6 +12,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
   <!--jquery cdn-->
   <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
@@ -61,6 +64,31 @@
 
     </p>
   </div>
+
+  <div class="w3-container">
+<!--    <h2>W3.CSS Modal</h2>-->
+<!--    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>-->
+
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+            <h1>
+              <img src="./Logo%20Mini.png">
+              <a href="#" rel="dofollow">SNS Canada Banking Ltd.</a>
+            </h1>
+          </div>
+          <dl>
+            <dt>Visa Credit Cards</dt>
+            <dd>All Visa Cards are subject to charge CAD $5 for all money transfer and withdrawal (cash advances) related transactions</dd>
+            <dt>Master Card Credit Cards</dt>
+            <dd>All Master Card Credit Cards are subject to charge CAD $10 for all money transfer and withdrawal (cash advances) related transactions</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
 <!--  <div class="col-6 col-md-4">
     <div class="card" style="position: sticky; top: 0;">
       <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
@@ -100,7 +128,7 @@
     console.log(x);
     if(x === "3" || x === "4"){
       document.getElementById('account-warning').innerHTML = 'Transfering from this account will lead to additional charges.' +
-              'For more info, <a href = "#">click here</a>';
+              'For more info, <button type="button" onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn-primary">click here</button>';
     } else {
       document.getElementById('account-warning').innerHTML = "";
     }
