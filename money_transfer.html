@@ -40,19 +40,26 @@
 
 <div class="row">
   <div>
-    <div>
-      <div class="container">
-        <select id="select_menu">
-          <option value="0">Select an Option</option>
-          <option value="internal">Withing Own Accounts</option>
-          <option value="external">Other Accounts</option>
-        </select>
-        <button onclick="formLoad()">Apply</button>
-        <p id="formPrint">
-          Select an option to load the transfer form.
-        </p>
-      </div>
+    <div class="card" style="position: sticky; top: 0;padding: 20px;">
+      <form class="was-validated" onsubmit="formLoad()" action="#">
+        <div class="form-floating">
+          <select id="select-form-type" class="form-select" required>
+            <option value="">Select an Option</option>
+            <option value="1">Withing Own Accounts</option>
+            <option value="2">Other Accounts</option>
+          </select>
+          <label for="select-form-type" class="form-label">Transfer Type</label>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-primary btn-block">Apply</button>
+        </div>
+      </form>
     </div>
+    <p id="formPrint">
+      Select an option to load the transfer form.
+    </p>
   </div>
 <!--  <div class="col-6 col-md-4">
     <div class="card" style="position: sticky; top: 0;">
@@ -88,48 +95,83 @@
   })
 
   function formLoad() {
-    var x = document.getElementById("select_menu").value;
+    var x = document.getElementById("select-form-type").value;
     var y;
-    if (x === "internal") {
-      y = "<form>" +
-              "<label for='fromAcc'>From Account: </label><br>" +
-              "<select id='fromAcc'>" +
-              "<option value='0'>Select an Account</option> " +
-              "<option value='1'>Savings</option>" +
-              "<option value='2'>Chequing</option>" +
-              "<option value='3'>Visa Credit</option> " +
-              "<option value='4'>MasterCard Platinum Credit</option> " +
-              "</select> <br>" +
-              "<label for='amt'>Enter Amount</label><br>" +
-              "<input type='number' placeholder='0.00' id='amt'><br>" +
-              "<label for='toAcc'>To Account: </label><br>" +
-              "<select id='toAcc'>" +
-              "<option value='0'>Select an Account</option> " +
+    if (x === "1") {
+      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px;\">" +
+              "<p class='h1'>Within Own Accounts</p> " +
+              "<form class='was-validated'>" +
+              "<div class='form-floating'> " +
+              "<select id='fromAcc' class='form-select' required>" +
+              "<option value=''>Select an Account</option> " +
               "<option value='1'>Savings</option>" +
               "<option value='2'>Chequing</option>" +
               "<option value='3'>Visa Credit</option> " +
               "<option value='4'>MasterCard Platinum Credit</option> " +
               "</select>" +
-              "<br><br><button>Submit</button>" +
-              "</form>";
-    } else if (x === "external"){
-      y = "<form>" +
-              "<label for='fromAcc'>From Account: </label><br>" +
-              "<select id='fromAcc'>" +
-              "<option value='0'>Select an Account</option> " +
+              "<label for='fromAcc' class='form-label'>From Account: </label>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<label for='amt' class='form-label'>Enter Amount</label>" +
+              "<div class='input-group'>" +
+              "<span class='input-group-text'>$</span> " +
+              "<input class='form-control' type='number' placeholder='0.00' id='amt' step='.01' required>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<div class='form-floating'> " +
+              "<select id='toAcc' class='form-select' required>" +
+              "<option value=''>Select an Account</option> " +
               "<option value='1'>Savings</option>" +
               "<option value='2'>Chequing</option>" +
               "<option value='3'>Visa Credit</option> " +
               "<option value='4'>MasterCard Platinum Credit</option> " +
-              "</select> <br>" +
-              "<label for='amt'>Enter Amount</label><br>" +
-              "<input type='number' placeholder='0.00' id='amt'><br>" +
-              "<label for='recieverId'>Reciever's Account Number</label><br>" +
-              "<input type='email' placeholder='example@snsbanking.com'>" +
-              "<br><br><button>Submit</button>" +
+              "</select>" +
+              "<label for='toAcc' class='form-label'>To Account: </label>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<div class='d-grid'>" +
+              "<button class='btn btn-secondary btn-block'>Submit</button>" +
+              "</div>" +
+              "</form>" +
+              "</div>";
+    } else if (x === "2"){
+      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px;\">" +
+              "<p class='h1'>Transfer to Other Accounts</p> " +
+              "<form class='was-validated'>" +
+              "<div class='form-floating'> " +
+              "<select id='fromAcc' class='form-select' required>" +
+              "<option value=''>Select an Account</option> " +
+              "<option value='1'>Savings</option>" +
+              "<option value='2'>Chequing</option>" +
+              "<option value='3'>Visa Credit</option> " +
+              "<option value='4'>MasterCard Platinum Credit</option> " +
+              "</select>" +
+              "<label for='fromAcc' class='form-label'>From Account: </label>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<label for='amt' class='form-label'>Enter Amount</label><br>" +
+              "<div class='input-group'> " +
+              "<span class='input-group-text'>$</span> " +
+              "<input type='number' placeholder='0.00' id='amt' step='.01' class='form-control' required>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<div class='form-floating'>" +
+              "<input type='number' placeholder='' class='form-control' required>" +
+              "<label for='recieverId' class='form-label'>Reciever's Account Number</label>" +
+              "<div class=\"valid-feedback\">Valid.</div>\n" +
+              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "</div>" +
+              "<div class='d-grid'> " +
+              "<button class='btn btn-secondary btn-block'>Submit</button>" +
+              "</div>" +
               "</form>";
     } else {
-      y = "Invalid Entry";
+      y = x + "Invalid Entry";
     }
     document.getElementById("formPrint").innerHTML = y;
   }

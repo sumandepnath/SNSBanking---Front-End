@@ -96,19 +96,41 @@
             </div>
         </div>
         <div class="col-6 col-md-4">
-            <div class="card" style="position: sticky; top: 0;">
-                <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
-                <div class="container">
-                    <h4><b>Suman Dep Nath</b></h4>
-                    <dl>
-                        <dt>Address:</dt>
-                        <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>
-                        <dt>Phone Number: </dt>
-                        <dd>(506) 898 2609</dd>
-                        <dt>Email:</dt>
-                        <dd>sumandepnath7@gmail.com</dd>
-                    </dl>
-                </div>
+<!--            <div class="card" style="position: sticky; top: 0;">-->
+<!--                <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">-->
+<!--                <div class="container">-->
+<!--                    <h4><b>Suman Dep Nath</b></h4>-->
+<!--                    <dl>-->
+<!--                        <dt>Address:</dt>-->
+<!--                        <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>-->
+<!--                        <dt>Phone Number: </dt>-->
+<!--                        <dd>(506) 898 2609</dd>-->
+<!--                        <dt>Email:</dt>-->
+<!--                        <dd>sumandepnath7@gmail.com</dd>-->
+<!--                    </dl>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="card" style="position: sticky; top: 0;padding: 20px;">
+                <form class="was-validated">
+                    <h1 style="text-align: center;">Add Funds to Account</h1>
+                    <label for="amt" class="form-label">Enter Amount</label><br>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input id="amt" type="number" placeholder="0.00" step=".01" class="form-control" required><br>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <label for="acc_select" class="form-label">Select Account</label><br>
+                    <select id="acc_select" class="form-select" required>
+                        <option value="">Select an Account</option>
+                        <option value="1">Savings</option>
+                        <option value="2">Chequing</option>
+                        <option value="3">Visa Credit</option>
+                    </select>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                    <button class="btn btn-secondary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
