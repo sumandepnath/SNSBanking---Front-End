@@ -135,6 +135,32 @@
                     <button class="btn btn-secondary">Submit</button>
                 </form>
             </div>
+            <div class="card" style="position: sticky; top: 0;padding: 20px;">
+                <h1 style="text-align: center;">Open New Account</h1>
+                <form action="#" class="was-validated">
+                    <div class="form-floating">
+                        <select id="account-type" class="form-select" required>
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="1">Chequing</option>
+                            <option value="2">Savings</option>
+                            <option value="3">Visa Credit Card</option>
+                            <option value="4">Master Card Credit Card</option>
+                        </select>
+                        <label for="account-type">Account Type</label>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please fill out this field</div>
+                    </div>
+                    <div class="form-floating">
+                        <input id="starting-amt" type="number" step="0.01" class="form-control" required>
+                        <label for="starting-amt">Starting Balance</label>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please fill out this field</div>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-block" type="submit">Apply!</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
