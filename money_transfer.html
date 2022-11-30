@@ -44,7 +44,7 @@
       <form class="was-validated" onsubmit="formLoad()" action="#" target="_self">
         <div class="form-floating">
           <select id="select-form-type" class="form-select" onchange="formLoad()" required>
-            <option value="">Select an Option</option>
+            <option value="" selected disabled>Select an Option</option>
             <option value="1">Withing Own Accounts</option>
             <option value="2">Other Accounts</option>
           </select>
@@ -94,8 +94,16 @@
     })
   })
 
-  function confirmationInternal(){
-
+  function creditCardWarning(){
+    var x = document.getElementById('fromAcc').value;
+    var y;
+    console.log(x);
+    if(x === "3" || x === "4"){
+      document.getElementById('account-warning').innerHTML = 'Transfering from this account will lead to additional charges.' +
+              'For more info, <a href = "#">click here</a>';
+    } else {
+      document.getElementById('account-warning').innerHTML = "";
+    }
   }
 
   function formLoad() {
@@ -106,8 +114,8 @@
               "<p class='h1'>Within Own Accounts</p> " +
               "<form class='was-validated'>" +
               "<div class='form-floating'> " +
-              "<select id='fromAcc' class='form-select' required>" +
-              "<option value=''>Select an Account</option> " +
+              "<select id='fromAcc' class='form-select' onchange='creditCardWarning()' required>" +
+              "<option value='' selected disabled>Select an Account</option> " +
               "<option value='1'>Savings</option>" +
               "<option value='2'>Chequing</option>" +
               "<option value='3'>Visa Credit</option> " +
@@ -116,6 +124,7 @@
               "<label for='fromAcc' class='form-label'>From Account: </label>" +
               "<div class=\"valid-feedback\">Valid.</div>\n" +
               "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
+              "<p id='account-warning'></p> " +
               "</div>" +
               "<label for='amt' class='form-label'>Enter Amount</label>" +
               "<div class='input-group'>" +
@@ -126,7 +135,7 @@
               "</div>" +
               "<div class='form-floating'> " +
               "<select id='toAcc' class='form-select' required>" +
-              "<option value=''>Select an Account</option> " +
+              "<option value='' selected disabled>Select an Account</option> " +
               "<option value='1'>Savings</option>" +
               "<option value='2'>Chequing</option>" +
               "<option value='3'>Visa Credit</option> " +
@@ -147,7 +156,7 @@
               "<form class='was-validated'>" +
               "<div class='form-floating'> " +
               "<select id='fromAcc' class='form-select' required>" +
-              "<option value=''>Select an Account</option> " +
+              "<option value='' selected disabled>Select an Account</option> " +
               "<option value='1'>Savings</option>" +
               "<option value='2'>Chequing</option>" +
               "<option value='3'>Visa Credit</option> " +
@@ -165,7 +174,7 @@
               "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
               "</div>" +
               "<div class='form-floating'>" +
-              "<input type='number' placeholder='' class='form-control' required>" +
+              "<input type='number' id='recieverId' placeholder='000-000-000' maxlength='11' class='form-control' required>" +
               "<label for='recieverId' class='form-label'>Reciever's Account Number</label>" +
               "<div class=\"valid-feedback\">Valid.</div>\n" +
               "<div class=\"invalid-feedback\">Please fill out this field.</div>" +

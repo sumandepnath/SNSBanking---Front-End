@@ -43,12 +43,17 @@
             <div>
                 <div class="container">
                     <h2>Account Information</h2>
-                    <select id="select_menu">
-                        <option value="null">Select an Account</option>
-                        <option value="savings">Savings (001-001-011)</option>
-                        <option value="chequing">Chequing (001-011-011)</option>
-                    </select>
-                    <button onclick="dataprint()">Apply</button>
+                    <div class="form-floating">
+                        <select id="select_menu" class="form-select" onchange="dataprint()">
+                            <option value="" selected disabled>Select an Account</option>
+                            <option value="savings">Savings (001-001-011)</option>
+                            <option value="chequing">Chequing (001-011-011)</option>
+                        </select>
+                        <label for="select_menu" class="form-label">Account</label>
+                    </div>
+<!--                    <div class="d-grid">-->
+<!--                        <button onclick="dataprint()" class="">Apply</button>-->
+<!--                    </div>-->
                 </div>
                 <div class="container">
                     <h2>Transactions</h2>
