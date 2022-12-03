@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:top="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>SNS Banking Limited</title>
-  <link rel="icon" href="Logo%20Mini.png">
+  <link rel="icon" href="LogoMini.png">
 
   <!--Bootstrap CDN-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -26,14 +27,15 @@
 </head>
 <body>
 <header>
-  <a href="dashboard.html" class="logo"><img src="Logo%20Mini.png" style="width: 50px; height: 50px; justify-self: center;">SNS Banking Limited</a>
+  <a href="dashboard" class="logo"><img src="/images/LogoMini.png" style="width: 50px; height: 50px; justify-self: center;">SNS Banking Limited</a>
   <div class="mean-toggle"></div>
   <nav>
     <ul>
-      <li><a href="transaction_history.html">Transaction History</a></li>
-      <li><a href="money_transfer.html" class="active">Money Transfer</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li><a href="index.html">Logout</a></li>
+      <li><a href="dashboard">Home</a></li>
+      <li><a href="history">Transaction History</a></li>
+      <li><a href="money_transfer" class="active">Money Transfer</a></li>
+      <li><a href="profile">Profile</a></li>
+      <li><a href="login">Logout</a></li>
       <!--                <li><a href="#">Portfolio</a></li>-->
       <!--                <li><a href="#">Contact</a></li>-->
     </ul>
@@ -41,180 +43,33 @@
   <div class="clear"></div>
 </header>
 
-<div class="row">
-  <div>
-    <div class="card" style="position: sticky; top: 0;padding: 20px; margin: 0px 150px 0px 150px;">
-      <form class="was-validated" onsubmit="formLoad()" action="#" target="_self">
-        <div class="form-floating">
-          <select id="select-form-type" class="form-select" onchange="formLoad()" required>
-            <option value="" selected disabled>Select an Option</option>
-            <option value="1">Withing Own Accounts</option>
-            <option value="2">Other Accounts</option>
-          </select>
-          <label for="select-form-type" class="form-label">Transfer Type</label>
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-<!--        <div class="d-grid">-->
-<!--          <button class="btn btn-primary btn-block">Apply</button>-->
-<!--        </div>-->
-      </form>
-    </div>
-    <p id="formPrint">
 
-    </p>
-  </div>
 
   <div class="w3-container">
-<!--    <h2>W3.CSS Modal</h2>-->
-<!--    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>-->
+          <div class="card" style="position: sticky; top: 0;padding: 20px;">
+          <h1> New Money Transfer</h1>
+          <form th:action="@{/process_transfer}" th:object="${Transaction}" method="post">
+              <div class="input-group">
+                  <label class="form-label" for="sending">Enter Sending Account Number</label>
+                  <select id="sending" class="form-select" required th:field="*{sendingID}">
+                      <option th:each="account: ${listAccounts}" th:value="${account.accountid}" th:text="${account.accountid}"></option>
+                  </select>
+                  <label for="amt" class="form-label">Enter Amount</label>
+                  <input id="amt" type='number' th:field="*{amount}" placeholder='0.00' />
+                  <label for="receiving"class="form-label">Enter Receiving Account Number</label>
+                  <input id="receiving" type='number' th:field="*{recievingID}" placeholder="Receiving Account Number"/>
+                  <div class='d-grid'>
+                      <input class='btn btn-secondary btn-block' name="submit" type="submit">
+                  </div>
+              </div>
+          </form>
 
-    <div id="id01" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-            <h1>
-              <img src="./Logo%20Mini.png">
-              <a href="#" rel="dofollow">SNS Canada Banking Ltd.</a>
-            </h1>
           </div>
-          <dl>
-            <dt>Visa Credit Cards</dt>
-            <dd>All Visa Cards are subject to charge CAD $5 for all money transfer and withdrawal (cash advances) related transactions</dd>
-            <dt>Master Card Credit Cards</dt>
-            <dd>All Master Card Credit Cards are subject to charge CAD $10 for all money transfer and withdrawal (cash advances) related transactions</dd>
-          </dl>
         </div>
       </div>
     </div>
   </div>
-<!--  <div class="col-6 col-md-4">
-    <div class="card" style="position: sticky; top: 0;">
-      <img src="img_avatar.png" alt="Avatar" style="width:100%; border-radius: 50%; padding: 10px;">
-      <div class="container">
-        <h4><b>Suman Dep Nath</b></h4>
-        <dl>
-          <dt>Address:</dt>
-          <dd>4 - 112 Queen Street, Saint John, New Brunswick, E2L 1S4</dd>
-          <dt>Phone Number: </dt>
-          <dd>(506) 898 2609</dd>
-          <dt>Email:</dt>
-          <dd>sumandepnath7@gmail.com</dd>
-        </dl>
-      </div>
-    </div>-->
-  </div>
+</div>
 </div>
 </body>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous">
-</script>
-<script type="text/javascript">
-  $(document).ready(function()
-  {
-    $('.mean-toggle').click(function()
-    {
-      $('.mean-toggle').toggleClass('active')
-      $('nav').toggleClass('active')
-    })
-  })
-
-  function creditCardWarning(){
-    var x = document.getElementById('fromAcc').value;
-    var y;
-    console.log(x);
-    if(x === "3" || x === "4"){
-      document.getElementById('account-warning').innerHTML = 'Transfering from this account will lead to additional charges.' +
-              'For more info, <button type="button" onclick="document.getElementById(\'id01\').style.display=\'block\'" class="btn-primary">click here</button>';
-    } else {
-      document.getElementById('account-warning').innerHTML = "";
-    }
-  }
-
-  function formLoad() {
-    var x = document.getElementById("select-form-type").value;
-    var y;
-    if (x === "1") {
-      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px; margin: 30px 150px 0px 150px;\">" +
-              "<p class='h1'>Within Own Accounts</p> " +
-              "<form class='was-validated'>" +
-              "<div class='form-floating'> " +
-              "<select id='fromAcc' class='form-select' onchange='creditCardWarning()' required>" +
-              "<option value='' selected disabled>Select an Account</option> " +
-              "<option value='1'>Savings</option>" +
-              "<option value='2'>Chequing</option>" +
-              "<option value='3'>Visa Credit</option> " +
-              "<option value='4'>MasterCard Platinum Credit</option> " +
-              "</select>" +
-              "<label for='fromAcc' class='form-label'>From Account: </label>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "<p id='account-warning'></p> " +
-              "</div>" +
-              "<label for='amt' class='form-label'>Enter Amount</label>" +
-              "<div class='input-group'>" +
-              "<span class='input-group-text'>$</span> " +
-              "<input class='form-control' type='number' placeholder='0.00' id='amt' step='.01' required>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "</div>" +
-              "<div class='form-floating'> " +
-              "<select id='toAcc' class='form-select' required>" +
-              "<option value='' selected disabled>Select an Account</option> " +
-              "<option value='1'>Savings</option>" +
-              "<option value='2'>Chequing</option>" +
-              "<option value='3'>Visa Credit</option> " +
-              "<option value='4'>MasterCard Platinum Credit</option> " +
-              "</select>" +
-              "<label for='toAcc' class='form-label'>To Account: </label>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "</div>" +
-              "<div class='d-grid'>" +
-              "<button class='btn btn-secondary btn-block'>Submit</button>" +
-              "</div>" +
-              "</form>" +
-              "</div>";
-    } else if (x === "2"){
-      y = "<div class=\"card\" style=\"position: sticky; top: 0;padding: 20px; margin: 30px 150px 0px 150px;\">" +
-              "<p class='h1'>Transfer to Other Accounts</p> " +
-              "<form class='was-validated'>" +
-              "<div class='form-floating'> " +
-              "<select id='fromAcc' class='form-select' required>" +
-              "<option value='' selected disabled>Select an Account</option> " +
-              "<option value='1'>Savings</option>" +
-              "<option value='2'>Chequing</option>" +
-              "<option value='3'>Visa Credit</option> " +
-              "<option value='4'>MasterCard Platinum Credit</option> " +
-              "</select>" +
-              "<label for='fromAcc' class='form-label'>From Account: </label>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "</div>" +
-              "<label for='amt' class='form-label'>Enter Amount</label><br>" +
-              "<div class='input-group'> " +
-              "<span class='input-group-text'>$</span> " +
-              "<input type='number' placeholder='0.00' id='amt' step='.01' class='form-control' required>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "</div>" +
-              "<div class='form-floating'>" +
-              "<input type='number' id='recieverId' placeholder='000-000-000' maxlength='11' class='form-control' required>" +
-              "<label for='recieverId' class='form-label'>Reciever's Account Number</label>" +
-              "<div class=\"valid-feedback\">Valid.</div>\n" +
-              "<div class=\"invalid-feedback\">Please fill out this field.</div>" +
-              "</div>" +
-              "<div class='d-grid'> " +
-              "<button class='btn btn-secondary btn-block'>Submit</button>" +
-              "</div>" +
-              "</form>";
-    } else {
-      y = x + "Invalid Entry";
-    }
-    document.getElementById("formPrint").innerHTML = y;
-  }
-</script>
 </html>
