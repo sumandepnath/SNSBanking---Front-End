@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>SNS Banking Limited</title>
-  <link rel="icon" href="LogoMini.png">
+  <link rel="icon" href="Logo%20Mini.png">
 
   <!--Bootstrap CDN-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -32,7 +32,7 @@
   <nav>
     <ul>
       <li><a href="dashboard">Home</a></li>
-      <li><a href="history">Transaction History</a></li>
+      <li><a href="transaction_history">Transaction History</a></li>
       <li><a href="money_transfer" class="active">Money Transfer</a></li>
       <li><a href="profile">Profile</a></li>
       <li><a href="login">Logout</a></li>
@@ -46,21 +46,14 @@
 
 
   <div class="w3-container">
-          <div class="card" style="position: sticky; top: 0;padding: 20px;">
+          <div class=\"card\" style=\"position:sticky">
           <h1> New Money Transfer</h1>
           <form th:action="@{/process_transfer}" th:object="${Transaction}" method="post">
-              <div class="input-group">
-                  <label class="form-label" for="sending">Enter Sending Account Number</label>
-                  <select id="sending" class="form-select" required th:field="*{sendingID}">
-                      <option th:each="account: ${listAccounts}" th:value="${account.accountid}" th:text="${account.accountid}"></option>
-                  </select>
-                  <label for="amt" class="form-label">Enter Amount</label>
-                  <input id="amt" type='number' th:field="*{amount}" placeholder='0.00' />
-                  <label for="receiving"class="form-label">Enter Receiving Account Number</label>
-                  <input id="receiving" type='number' th:field="*{recievingID}" placeholder="Receiving Account Number"/>
-                  <div class='d-grid'>
-                      <input class='btn btn-secondary btn-block' name="submit" type="submit">
-                  </div>
+              <input type='number' th:field="*{sendingID}" placeholder="From Account Number"/>
+              <input type='number' th:field="*{amount}" placeholder='0.00' />
+              <input type='number' th:field="*{recievingID}" placeholder="Receiving Account Number"/>
+              <div class='d-grid'>
+                <input class='btn btn-secondary btn-block' name="submit" type="submit">
               </div>
           </form>
 
